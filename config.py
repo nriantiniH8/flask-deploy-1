@@ -12,8 +12,13 @@ connex_app = connexion.App(__name__, specification_dir=basedir)
 flask_app = connex_app.app
 
 # Configure the SQLAlchemy part of the app instance
+# flask_app.config['SQLALCHEMY_ECHO'] = True
+# flask_app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'people.db')
+# flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# Configure the SQLAlchemy part of the app instance
 flask_app.config['SQLALCHEMY_ECHO'] = True
-flask_app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'people.db')
+flask_app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:YUvsPxboEdTbcVmwIv6A@containers-us-west-153.railway.app:6929/railway'
 flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Create the SQLAlchemy db instance
